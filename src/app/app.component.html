@@ -1,0 +1,95 @@
+<div class="unit-wrapper">
+  <h1><span>DORORO</span></h1>
+  <img src="https://i.pinimg.com/550x/e9/3f/4f/e93f4ffbbc790202db396bac9d361ba8.jpg" id="img" class="img">
+  <div class="img"></div>
+  <div class="img"></div>
+  <div class="img"></div>
+  <div class="img"></div>
+</div>
+
+<div class="container py-5"
+  style="background-image: url(https://images.hive.blog/0x0/https://files.peakd.com/file/peakd-hive/ochitoalreves/Uee9nyuP-portadita.jpg);">
+
+  <div class="row">
+    <div class=" card col-md-6">
+      <h3 class="card-title cabecera">Personajes</h3>
+
+      <div *ngFor="let anime of animes" class="card mb-3">
+        <div class="card-body" style="background-color: whitesmoke;">
+          <div class="d-flex justify-content-between">
+            <div>
+              <p style="font-style: italic;">Nombre personaje: {{anime.nombre}} </p>
+              
+            </div>
+          </div>
+          <div>
+            <p style="font-style: italic;">Partes de personaje: {{anime.partes}}</p>
+          </div>
+
+          <div>
+            <p style="font-style: italic;">Lugar de las peleas: {{anime.lugar}}</p>
+          </div>
+          <div>
+            <p style="font-style: italic;">Nombre del demonio: {{anime.demonio}}</p>
+          </div>
+
+
+            <div class="text-muted">
+              <i class="fa fa-edit cursor-pointer" title="Editar Personaje" (click)="edit(anime)"></i>
+              <i class="fa fa-trash ms-2 cursor-pointer" title="Eliminar Personaje" (click)="delete(anime)"></i>
+            </div>
+          
+
+        </div>
+      </div>
+    </div>
+
+    <div class=" card col-md-6">
+
+      <h3 class=" card-title cabecera">{{anime.id ? 'Editar':'Nuevo'}} Personaje</h3>
+      <form class="mt-5" (ngSubmit)="save()">
+
+        <!--Agregar nombre-->
+        <div class="card-body">
+          <div class="mb-3 form-floating">
+            <input id="nombre" type="text" placeholder="Nombre personaje" name="nombre" class="form-control"
+              [(ngModel)]="anime.nombre">
+            <label for="nombre">Nombre del personaje:</label>
+          </div>
+
+          <!--agregar partes-->
+          <div class="mb-3 form-floating">
+            <input id="partes" type="text" placeholder="Partes" name="partes" class="form-control"
+              [(ngModel)]="anime.partes">
+            <label for="partes">Partes del cuerpo faltantes:</label>
+          </div>
+
+          <!--agregar lugar-->
+          <div class="mb-3 form-floating">
+            <input id="lugar" type="text" placeholder="Lugar" name="lugar" class="form-control"
+              [(ngModel)]="anime.lugar">
+            <label for="lugar">Lugar de las peleas:</label>
+          </div>
+
+          <!--agregar demonio-->
+          <div class="mb-3 form-floating">
+            <input id="demonio" type="text" placeholder="demonio" name="demonio" class="form-control"
+              [(ngModel)]="anime.demonio">
+            <label for="demonio">Nombre del demonio:</label>
+          </div>
+        </div>
+
+        <div class="text-end">
+          <button class="btn btn-primary btn-lg">Guardar</button>
+        </div>
+
+      </form>
+
+    </div>
+
+
+  </div>
+
+
+</div>
+
